@@ -1,0 +1,67 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/google-feeds/google-feeds.html">
+<link rel="import" href="../components/paper-card/paper-card.html">
+<link rel="import" href="../components/paper-input/paper-input.html">
+<link rel="import" href="../components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="rss-feed">
+  <style>
+    paper-card {
+      margin-bottom: 10px;
+      width: 40%;
+    }
+
+    .feed-header {
+        @apply(--paper-font-headline);
+    }
+
+    .flex-center-justified {
+      @apply(--layout-vertical);
+      @apply(--layout-center-justified);
+    }
+  </style>
+
+  <template>
+
+    <h1>RSS-Feed element demo</h1>
+    <!-- http://www.engadget.com/rss-full.xml -->
+    <!-- google-feeds feed='http://www.nu.nl/rss' results='{{result}}'></google-feeds -->
+    <google-feeds feed="{{linkValue}}" results='{{result}}'></google-feeds>
+    <p>Feed link: <span>{{result.link}}</span></p>
+    <p>Feed description: <span>{{result.description}}</span></p>
+    <paper-input value="{{linkValue}}" label="Please enter the RSS link"></paper-input>
+
+    <div class="flex-center-justified">
+      <template is="dom-repeat" items="{{result.entries}}" as="entry">
+        <paper-card animated-shadow="true">
+          <div class="card-content">
+            <div class="feed-header">
+              {{entry.title}}
+            </div>
+            <a href="url">{{entry.link}}</a>
+          </div>
+        </paper-card>
+      </template>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'rss-feed',
+      properties: {
+        result: {
+          type: Object,
+          observer: '_onResultsChanged'
+        },
+        linkValue: {
+          type: String,
+        }
+      },
+      _onResultsChanged: function(newValue, oldValue) {
+        console.log(newValue);
+      }
+    });
+  </script>
+
+</dom-module>

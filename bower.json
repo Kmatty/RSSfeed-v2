@@ -1,0 +1,18 @@
+{
+  "name": "RSSFeed",
+  "description": "",
+  "homepage": "",
+  "keywords": [
+  ],
+  "author": "",
+  "private": true,
+  "dependencies": {
+  "polymer": "polymer/polymer#^1.0.0",
+  "google-feeds": "GoogleWebComponents/google-feeds#^1.0.0",
+  "google-apis": "GoogleWebComponents/google-apis#^1.0.0",
+  "paper-input": "PolymerElements/paper-input#^1.0.0",
+  "paper-card": "PolymerElements/paper-card#^1.1.0",
+  "paper-listbox": "PolymerElements/paper-listbox#^1.1.0",
+  "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.1.0"
+  }
+}
