@@ -9,7 +9,7 @@
   <style>
     paper-card {
       margin-bottom: 10px;
-      width: 40%;
+      width: 100%;
     }
 
     .feed-header {
@@ -39,7 +39,7 @@
             <div class="feed-header">
               {{entry.title}}
             </div>
-            <a href="url">{{entry.link}}</a>
+            <a href="{{entry.link}}" target="_blank">{{entry.link}}</a>
           </div>
         </paper-card>
       </template>
