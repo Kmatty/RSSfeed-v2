@@ -24,13 +24,17 @@
 
   <template>
 
-    <h1>RSS-Feed element demo - V2</h1>
     <!-- http://www.engadget.com/rss-full.xml -->
     <!-- google-feeds feed='http://www.nu.nl/rss' results='{{result}}'></google-feeds -->
+    <!--h1>RSS-Feed element demo - V2</h1-->
+    <!--p>Feed link: <span>{{result.link}}</span></p>
+    <p>Feed description: <span>{{result.description}}</span></p-->
     <google-feeds feed="{{linkValue}}" results='{{result}}'></google-feeds>
-    <p>Feed link: <span>{{result.link}}</span></p>
-    <p>Feed description: <span>{{result.description}}</span></p>
-    <paper-input value="{{linkValue}}" label="Please enter the RSS link"></paper-input>
+    <paper-card animated-shadow="true" image="rss-feed.jpg">
+      <h1>RSS-Feed element demo - V2</h1>
+      <p>Feed link: <span>{{result.link}}</span></p>
+      <p>Feed description: <span>{{result.description}}</span></p>
+    </paper-card>
 
     <div class="flex-center-justified">
       <template is="dom-repeat" items="{{result.entries}}" as="entry">
@@ -44,6 +48,7 @@
         </paper-card>
       </template>
     </div>
+    <paper-input value="{{linkValue}}" label="Please enter the RSS link"></paper-input>
   </template>
 
   <script>
